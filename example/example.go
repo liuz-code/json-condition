@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/liuz-code/json-condition"
+)
 
 func main() {
 	//----------------and
@@ -30,7 +34,7 @@ func main() {
 	//----------------and like
 	data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"name\":\"xiaoming\"}"
 	rule := "{\"like\":{\"name\":\"ao\"},\"and\":{\"projectId\":\"10001\"}}"
-	var d JsonCondition
+	var d jCondition.JsonCondition
 	b, err := d.JsonCheck(data, rule)
 	fmt.Println("check:", b, ", err:", err)
 }
