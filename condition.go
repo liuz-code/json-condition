@@ -35,11 +35,11 @@ func (f *JsonCondition) JsonCheck(data, rule string) (bool, error) {
 }
 
 func (f *JsonCondition) Check(data, rule map[string]interface{}) (bool, error) {
-	if len(rule) == 0 {
+	if rule == nil || len(rule) == 0 {
 		fmt.Println("rule map empty. return true")
 		return true, nil
 	}
-	if len(data) == 0 {
+	if data == nil || len(data) == 0 {
 		fmt.Println("data empty. return false")
 		return false, nil
 	}
