@@ -63,6 +63,18 @@ example中有试用方式请参考试用。
 ## Data数据
 
 data为rule筛选的数据源。
+```json
+{
+  "projectId": "10001",
+  "code": "test-push",
+  "name": "xiaoming",
+  "days": [
+    "one",
+    "two",
+    "three"
+  ]
+}
+```
 
 ## 运行测试
 
