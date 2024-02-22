@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/liuz-code/json-condition"
+	jCondition "github.com/liuz-code/json-condition"
 )
 
 func main() {
 	//----------------and
-	// data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"productCode\":\"cvforce\"}"
-	// rule := "{\"and\":{\"projectId\":\"10001\",\"code\":\"test-push\"}}"
+	// data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"productCode\":\"cvforce\",\"class\":{\"name\":\"小明\"}}"
+	// rule := "{\"and\":{\"projectId\":\"10001\",\"code\":\"test-push\",\"class.name\":\"小明\"}}"
 	//----------------or
 	// data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"productCode\":\"cvforce\"}"
 	// rule := "{\"or\":{\"projectId\":\"10001\",\"code\":\"test-push1111\"}}"
@@ -32,8 +32,8 @@ func main() {
 	// data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"name\":\"xiaoming\"}"
 	// rule := "{\"like\":{\"name\":\"ao\"}}"
 	//----------------and like
-	data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"name\":\"xiaoming\"}"
-	rule := "{\"like\":{\"name\":\"ao\"},\"and\":{\"projectId\":\"10001\"}}"
+	data := "{\"projectId\":\"10001\",\"code\":\"test-push\",\"name\":\"xiaoming\",\"days\":[\"one\",\"two\",\"three\"]}"
+	rule := "{\"like\":{\"name\":\"ao\"},\"and\":{\"projectId\":\"10001\",\"days.[0]\":\"one\"}}"
 	var d jCondition.JsonCondition
 	b, err := d.JsonCheck(data, rule)
 	fmt.Println("check:", b, ", err:", err)
